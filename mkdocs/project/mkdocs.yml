@@ -1,0 +1,98 @@
+site_name: 机器人个人网站
+site_url: http://127.0.0.1:8000
+site_author: 机器人
+site_description: 免费、共享
+copyright: >
+    Copyright &copy; 2023 Robot. All Rights Reserved. 机器人 版权所有
+repo_name: Github
+repo_url: https://github.com/Homqyy/fast-mkdocs
+theme:
+  name: material
+  language: zh
+  palette:
+    # 白天模式
+    - scheme: default
+      primary: light green
+      accent: red
+      toggle:
+        icon: bootstrap/sun
+        name: 切换为夜晚模式
+    # 晚上模式
+    - scheme: slate
+      accent: red
+      toggle:
+        icon: bootstrap/moon
+        name: 切换为白天模式
+  custom_dir: overrides         # 订制目录
+#  logo: assets/images/logo.svg  # 设置Logo
+  features:
+    - content.code.copy
+    - navigation.instant        # 独立的导航
+    - navigation.tracking       # 自动更新内容锚
+    - navigation.tabs           # 大屏幕的一级页签放上面
+    - navigation.path           # 显示路径
+    - navigation.top            # 返回按钮
+    - header.autohide           # 自动隐藏头
+    - announce.dismiss          # 允许用户关闭公告栏
+  icon:
+    repo: bootstrap/github
+    tag:
+      book-note: octicons/book-16
+
+plugins:
+  - tags:
+      tags_file: tags.md
+  - search:
+  - material-plausible:
+  - glightbox:            # 图片盒子
+
+markdown_extensions:
+  - md_in_html:           # markdown签到在HTML中
+  - attr_list:            # 排列
+  - toc:
+      permalink: true     # 自动生成目录
+      toc_depth: 4        # 目录深度
+  - footnotes:            # 脚注
+  - meta:
+  - admonition:           # 添加警示：note, abstract, info, tip, success, question, warning, failure, danger, bug, example, quote
+  - abbr:
+  - tables:               # 表格语法
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - pymdownx.betterem:    # 更好的强调解析：可嵌套
+      smart_enable: all
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:       # 表情包/图标包(https://squidfunk.github.io/mkdocs-material/reference/icons-emojis)
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.tabbed:
+      alternate_style: true # 多页签（https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/）
+  - pymdownx.magiclink:
+  - pymdownx.smartsymbols:
+  - pymdownx.tasklist:
+  - pymdownx.mark:        # ==高亮==
+  - pymdownx.tilde:       # ~~删除~~
+  - pymdownx.inlinehilite:
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences: # 颜色渲染
+
+extra:
+  tags:
+      读书笔记: book-note
+
+extra_css:
+  - stylesheets/custom.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - 主页: index.md
+  - 标签页: tags.md
