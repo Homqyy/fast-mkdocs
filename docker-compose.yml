@@ -4,7 +4,7 @@ services:
     web:
         image: homqyy/hengine:1.0
         ports:
-            - "8000:80/tcp"
+            - "9000:80/tcp"
         restart: always
         volumes:
             - ./web/conf/nginx.conf:/usr/local/hengine/conf/nginx.conf:ro
