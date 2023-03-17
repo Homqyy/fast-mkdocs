@@ -11,7 +11,7 @@ services:
             - ./mkdocs/site:/usr/local/hengine/html/site:ro
 
     mkdocs:
-        image: homqyy/mkdocs
+        image: homqyy/fast-mkdocs
         build:
             context: ./mkdocs
         network_mode: host
