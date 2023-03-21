@@ -1,20 +1,18 @@
 version: '3.8'
 
 services:
-    web:
-        image: homqyy/hengine:1.0
-        ports:
-            - "9000:80/tcp"
-        restart: always
-        volumes:
-            - ./web/conf/nginx.conf:/usr/local/hengine/conf/nginx.conf:ro
-            - ./mkdocs/site:/usr/local/hengine/html/site:ro
-
     mkdocs:
         image: homqyy/fast-mkdocs
         build:
             context: ./mkdocs
         network_mode: host
         volumes:
-            - ./mkdocs/project:/site
-            - ./mkdocs/site:/site/site
+            - ./mkdocs/project:/project
+    web:
+        image: homqyy/hengine:1.0
+        ports:
+            - "10000:80/tcp"
+        restart: always
+        volumes:
+            - ./web/conf/nginx.conf:/usr/local/hengine/conf/nginx.conf:ro
+            - ./mkdocs/project/site:/usr/local/hengine/html/site:ro
